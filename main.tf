@@ -1,13 +1,15 @@
-terraform {
-  required_version = ">= 0.12.26"
+variable "greeting" {
+  description = "greeting used for the demo"
+  type        = string
+  default     = "Hello"
 }
 
 variable "subject" {
-   type = string
-   default = "World"
-   description = "Subject to hello"
+  description = "the subject the greeting will be presented to"
+  type        = string
+  default     = "AirwalkDemo"
 }
 
-output "hello_world" {
-  value = "Hello branch demo with source change, ${var.subject}!"
+output "message" {
+  value = format("%s, %s!", var.greeting, var.subject)
 }
